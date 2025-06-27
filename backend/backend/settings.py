@@ -1,9 +1,7 @@
 from pathlib import Path
 import os
 
-BASE_DIR=Path(__file__).resolve(strict=True).parent.parent
-MEDIA_URL='/Photos/'
-MEDIA_ROOT=os.path.join(BASE_DIR,"Photos")
+
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -76,11 +74,11 @@ WSGI_APPLICATION = 'backend.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'MyDatabase',
-        'USER': 'postgres',
-        'PASSWORD': 'password',
-        'HOST' : 'localhost',
-        'PORT' : '5432'
+        'NAME': 'mirai',      # Your database name
+        'USER': 'aidar',        # Your PostgreSQL username
+        'PASSWORD': '123',# Your PostgreSQL password
+        'HOST': 'localhost',           # Set to 'localhost' for local dev
+        'PORT': '5432',                # Default PostgreSQL port
     }
 }
 
@@ -118,12 +116,20 @@ USE_L10N = True
 USE_TZ = True
 
 
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/3.2/howto/static-files/
 
-STATIC_URL = '/static/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+# settings.py (relevant parts)
+STATIC_URL = '/static/'
+STATIC_ROOT = BASE_DIR / 'staticfiles'  # where collectstatic will gather files for production
+STATICFILES_DIRS = [
+    BASE_DIR / 'static',  # if you're using a global static directory
+]
+# For media (user uploads), if needed:
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR / 'media'

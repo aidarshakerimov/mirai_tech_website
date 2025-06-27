@@ -1,0 +1,98 @@
+<template>
+  <section class="application-cards">
+    <h2 class="section-title">Applications</h2>
+    <p class="section-description">
+      We change the approach to rehabilitation and motion monitoring.<br />
+      MIRAI TECH integrates into any environment — from clinics and sports centers to home workouts. A universal tool focused on results.
+    </p>
+    <div class="cards-container">
+      <div class="card" v-for="(app, index) in applications" :key="index">
+        <img :src="app.image" class="background-image" alt="Application image" />
+        <div class="card-overlay">
+          <h3>{{ app.title }}</h3>
+          <p v-html="app.description"></p>
+        </div>
+      </div>
+    </div>
+  </section>
+</template>
+
+<script setup>
+import sportImage from '@/assets/images/applications-sports.jpeg';
+import rehabImage from '@/assets/images/applications-rehab.jpeg';
+
+const applications = [
+  {
+    title: 'MIRAI TECH in sports',
+    description:
+      'Used for analyzing gait and load distribution in professional athletes.<br />Helps correct technique and prevent injuries.',
+    image: sportImage
+  },
+  {
+    title: 'MIRAI TECH in clinics and rehabilitation',
+    description:
+      'Doctors use the insoles for objective assessment of patient condition<br />and adapting rehabilitation programs.',
+    image: rehabImage
+  }
+];
+</script>
+
+<style scoped>
+.application-cards {
+  padding: 4rem 1rem;
+  text-align: center;
+}
+.section-title {
+  font-size: 2rem;
+  font-weight: 700;
+}
+.section-description {
+  font-size: 1rem;
+  max-width: 700px;
+  margin: 1rem auto 2rem;
+  color: #555;
+}
+.cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+}
+.card {
+  position: relative;
+  width: 100%;
+  max-width: 550px;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+.background-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  filter: brightness(60%);
+}
+.card-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 2rem;
+  color: white;
+  text-align: left;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.card-overlay h3 {
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+}
+.card-overlay p {
+  font-size: 1rem;
+  line-height: 1.4;
+}
+</style>

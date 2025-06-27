@@ -1,22 +1,17 @@
+// src/main.js
 import { createApp } from 'vue';
 import App from './App.vue';
-import { createRouter, createWebHistory } from 'vue-router';
-import Home from './components/Home';
-import Department from './components/Department';
-import Employee from './components/Employee';
 
-const routes = [
-  { path: '/home', component: Home },
-  { path: '/department', component: Department },
-  { path: '/employee', component: Employee },
-];
+// Import router and store
+import router from './router';
+import { createPinia } from 'pinia';
 
-const router = createRouter({
-  history: createWebHistory(),
-  routes,
-});
-
+// Create Vue app
 const app = createApp(App);
+
+// Register global plugins
+app.use(createPinia());
 app.use(router);
 
+// Mount the app
 app.mount('#app');

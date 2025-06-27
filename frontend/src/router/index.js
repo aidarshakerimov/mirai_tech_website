@@ -1,12 +1,15 @@
+// src/router/index.js
 import { createRouter, createWebHistory } from 'vue-router';
-import Home from '@/components/Home.vue';
-import Department from '@/components/Department.vue';
-import Employee from '@/components/Employee.vue';
+
+// Adjust the path if your Home.vue is somewhere else
+import Home from '../components/Home.vue';
 
 const routes = [
-  { path: '/', component: Home },
-  { path: '/department', component: Department },
-  { path: '/employee', component: Employee },
+  {
+    path: '/',
+    name: 'Home',
+    component: Home,
+  },
 ];
 
 const router = createRouter({
@@ -15,3 +18,4 @@ const router = createRouter({
 });
 
 export default router;
+
