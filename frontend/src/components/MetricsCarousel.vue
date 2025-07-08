@@ -10,7 +10,7 @@
         :key="index"
         class="metric-tile"
       >
-        <div class="icon" v-html="metric.icon"></div>
+        <img :src="metric.icon" alt="icon" class="metric-icon-img" />
         <div class="metric-label">{{ metric.label }}</div>
       </div>
     </div>
@@ -19,12 +19,12 @@
 
 <script setup>
 const metrics = [
-  { label: 'Asymmetry', icon: '<i class="mdi mdi-foot-print"></i>' },
-  { label: 'Step Length', icon: '<i class="mdi mdi-walk"></i>' },
-  { label: 'Pressure Distribution', icon: '<i class="mdi mdi-chart-bar"></i>' },
-  { label: 'Dynamics', icon: '<i class="mdi mdi-chart-line"></i>' },
-  { label: 'Contact Phases', icon: '<i class="mdi mdi-shoe-print"></i>' },
-  { label: 'Roll Phases', icon: '<i class="mdi mdi-walk"></i>' },
+  { label: 'Asymmetry', icon: new URL('@/assets/images/metrics_icon1.png', import.meta.url).href },
+  { label: 'Step Length', icon: new URL('@/assets/images/metrics_icon2.png', import.meta.url).href },
+  { label: 'Pressure Distribution', icon: new URL('@/assets/images/metrics_icon3.png', import.meta.url).href },
+  { label: 'Dynamics', icon: new URL('@/assets/images/metrics_icon4.png', import.meta.url).href },
+  { label: 'Contact Phases', icon: new URL('@/assets/images/metrics_icon5.png', import.meta.url).href },
+  { label: 'Roll Phases', icon: new URL('@/assets/images/metrics_icon6.png', import.meta.url).href },
 ];
 </script>
 
@@ -32,7 +32,7 @@ const metrics = [
 .metrics-section {
   padding: 80px 20px;
   text-align: center;
-  background: url('/images/laptop.jpeg') center/cover no-repeat;
+  background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('/images/laptop.png') center/cover no-repeat;
   border-radius: 20px;
   margin: 40px 20px;
 }
@@ -40,13 +40,13 @@ const metrics = [
 .section-title {
   font-size: 2.5rem;
   font-weight: 700;
-  color: #0b102a;
+  color: #f8f9ff;
 }
 
 .section-subtitle {
   font-size: 1.2rem;
   margin-bottom: 40px;
-  color: #333;
+  color: #ffffff;
 }
 
 .metrics-grid {
@@ -75,10 +75,11 @@ const metrics = [
   box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
 }
 
-.icon {
-  font-size: 2.5rem;
-  color: #00e6e6;
+.metric-icon-img {
+  width: 256px;
+  height: 160px;
   margin-bottom: 16px;
+  filter: invert(74%) sepia(96%) saturate(332%) hue-rotate(122deg) brightness(94%) contrast(89%);
 }
 
 .metric-label {

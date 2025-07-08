@@ -1,5 +1,5 @@
 <template>
-  <section class="video-carousel">
+  <section class="video-carousel" id="blog">
     <h2 class="carousel-title">Real steps. Real results.</h2>
     <p class="carousel-subtitle">Diagnostics, progress, and tracking — all shown in motion.</p>
     <div class="carousel">
@@ -39,22 +39,24 @@ function prev() {
 </script>
 
 <style scoped>
+
+.carousel-title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+  color: #ffffff;
+}
+.carousel-subtitle {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  color: #ffffff;
+}
 .video-carousel {
   text-align: center;
   padding: 80px 20px;
 }
 
-.carousel-title {
-  font-size: 2rem;
-  font-weight: 700;
-  margin-bottom: 0.5rem;
-}
 
-.carousel-subtitle {
-  font-size: 1rem;
-  margin-bottom: 2rem;
-  color: #555;
-}
 
 .carousel {
   display: flex;

@@ -18,8 +18,8 @@
 </template>
 
 <script setup>
-import sportImage from '@/assets/images/applications-sports.jpeg';
-import rehabImage from '@/assets/images/applications-rehab.jpeg';
+import sportImage from '@/assets/images/applications-sports.png';
+import rehabImage from '@/assets/images/applications-rehab.png';
 
 const applications = [
   {
@@ -38,41 +38,62 @@ const applications = [
 </script>
 
 <style scoped>
+
+.section-title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+  color: #ffffff;
+}
 .application-cards {
   padding: 4rem 1rem;
   text-align: center;
 }
+
 .section-title {
   font-size: 2rem;
   font-weight: 700;
 }
+
 .section-description {
   font-size: 1rem;
   max-width: 700px;
   margin: 1rem auto 2rem;
-  color: #555;
+  color: #ffffff;
 }
+
 .cards-container {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   gap: 2rem;
 }
+
 .card {
   position: relative;
   width: 100%;
   max-width: 550px;
+  height: 256px;
   border-radius: 20px;
   overflow: hidden;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
+
+.card:hover {
+  transform: translateY(-10px) scale(1.03);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
+}
+
 .background-image {
   width: 100%;
   height: 100%;
   object-fit: cover;
   display: block;
-  filter: brightness(60%);
+  filter: brightness(70%) sepia(30%) hue-rotate(180deg) saturate(120%);
+  transition: filter 0.3s ease;
 }
+
 .card-overlay {
   position: absolute;
   top: 0;
@@ -85,12 +106,16 @@ const applications = [
   display: flex;
   flex-direction: column;
   justify-content: center;
+  background: rgba(0, 0, 50, 0.3);
+  backdrop-filter: blur(2px);
 }
+
 .card-overlay h3 {
   font-size: 1.25rem;
   margin-bottom: 0.5rem;
   font-weight: 700;
 }
+
 .card-overlay p {
   font-size: 1rem;
   line-height: 1.4;

@@ -28,13 +28,13 @@ export default {
         {
           name: 'ROMAN IVANOV',
           role: 'Asian Games Gold Medalist in Freestyle Skiing',
-          avatar: require('@/assets/images/sergei_olimp.jpeg'),
+          avatar: require('@/assets/images/sergei_olimp.png'),
           text: 'Clearly saw the difference in leg load, understood what to work on after doctor’s interpretation.'
         },
         {
           name: 'TAISIYA DURACHENKO',
           role: 'Sports Medicine and Rehab Doctor, CEO',
-          avatar: require('@/assets/images/orys.jpeg'),
+          avatar: require('@/assets/images/orys.png'),
           text: "Now we can not only rely on the patient's words but also show objective progress data."
         },
         {

@@ -8,7 +8,7 @@
           Made in Kazakhstan.
         </h2>
         <p class="made-description">
-          {{ t('made-description') }}
+          {{ t('Each pair of MIRAI Smart Insole is made at our facility in Astana — from idea to finished product. This allows us to control quality at all stages and innovate faster — from sensors to AI algorithms.') }}
         </p>
       </div>
       <div class="made-logos">

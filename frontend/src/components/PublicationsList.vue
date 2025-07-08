@@ -1,5 +1,5 @@
 <template>
-  <section class="publications-list">
+  <section class="publications-list" id="publications">
     <h2 class="title">Our Publications</h2>
     <div class="cards">
       <div
@@ -29,32 +29,53 @@ const publications = [
     year: '2025',
     source: 'IEEE Xplore',
     title: 'Noise-Optimized Signal Processing for TENG-Based Touch Sensing Using I2C Integrated Circuits',
-    link: 'https://ieeexplore.ieee.org/document/12345678'
+    link: 'https://ieeexplore.ieee.org/document/11006356'
   },
   {
     year: '2024',
     source: 'The Advanced Materials Technologies',
     title: 'AI-Enhanced Gait Analysis Insole with Self-Powered Triboelectric Sensors for Flatfoot Condition Detection',
-    link: 'https://onlinelibrary.wiley.com/doi/10.1002/admt.202400123'
+    link: 'https://advanced.onlinelibrary.wiley.com/doi/10.1002/admt.202401282'
   },
   {
     year: '2024',
     source: 'Wiley Online Library',
-    title: 'Recycling Polyvinyl Chloride (PVC) Pipe Wastes into PVC/ZnO Nanofiber-Based Triboelectric Nanogenerators',
-    link: 'https://onlinelibrary.wiley.com/doi/10.1002/adma.202400321'
+    title: 'Recycling Polyvinyl Chloride (PVC) Pipe Wastes intoPVC/ZnO Nanofiber-Based Triboelectric Nanogenerators',
+    link: 'https://onlinelibrary.wiley.com/doi/epdf/10.1002/eem2.12884'
+  },
+  {
+    year: '2024',
+    source: 'IEEE Xplore',
+    title: 'A Novel Pattern Recognition Method for Self-Powered TENG Sensor Embedded to the Robotic Hand',
+    link: 'https://ieeexplore.ieee.org/abstract/document/10843698'
+  },
+  {
+    year: '2024',
+    source: 'The Advanced Sensor Research',
+    title: 'Incorporating MIL-125 Metal-Organic Framework for Flexible Triboelectric Nanogenerators and Self-Powered Sensors for Robotic Grippers',
+    link: 'https://advanced.onlinelibrary.wiley.com/doi/full/10.1002/adsr.202300163'
+  },
+  {
+    year: '2024',
+    source: 'National Library of Medicine',
+    title: 'Structural and Chemical Modifications Towards High-Performance of Triboelectric Nanogenerators',
+    link: 'https://pubmed.ncbi.nlm.nih.gov/34328566/'
   }
 ];
 </script>
 
 <style scoped>
+.title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+  color: #ffffff;
+  position: relative;
+  display: inline-block;
+}
 .publications-list {
   padding: 4rem 2rem;
   text-align: center;
-}
-.title {
-  font-size: 2rem;
-  font-weight: bold;
-  margin-bottom: 2rem;
 }
 .cards {
   display: flex;

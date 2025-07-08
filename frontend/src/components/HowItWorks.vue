@@ -1,5 +1,5 @@
 <template>
-  <section class="how-it-works">
+  <section class="how-it-works" id="how">
     <div class="container">
       <h2 class="section-title">How does MIRAI Smart Insole work?</h2>
       <p class="section-subtitle">Only 4 steps — and you get a digital gait profile</p>
@@ -8,7 +8,7 @@
         <div class="step-card" v-for="(step, index) in steps" :key="index">
           <div class="step-number">{{ index + 1 }}</div>
           <div class="step-icon">
-            <i :class="step.icon"></i>
+            <svg-icon type="mdi" :path="step.path" />
           </div>
           <h3>{{ step.title }}</h3>
           <p>{{ step.text }}</p>
@@ -19,28 +19,31 @@
 </template>
 
 <script setup>
+import SvgIcon from '@jamescoyle/vue-icon';
+import { mdiShoePrint, mdiBluetooth, mdiWalk, mdiFileChart } from '@mdi/js';
+
 const steps = [
   {
-    icon: 'mdi mdi-foot-print',
+    path: mdiShoePrint,
     title: 'Insert the insoles',
     text: 'Choose the right size and place it in your shoe.'
   },
   {
-    icon: 'mdi mdi-bluetooth',
+    path: mdiBluetooth,
     title: 'Connect via Bluetooth',
     text: 'Open the app and follow the on-screen instructions.'
   },
   {
-    icon: 'mdi mdi-walk',
+    path: mdiWalk,
     title: 'Take 10 steps',
     text: 'The insoles will record your data as you walk.'
   },
   {
-    icon: 'mdi mdi-file-document-outline',
+    path: mdiFileChart,
     title: 'Get your report',
     text: 'You can save, print, or email the results.'
   }
-]
+];
 </script>
 
 <style scoped>
@@ -73,12 +76,19 @@ const steps = [
 }
 
 .step-card {
-  background: rgba(255, 255, 255, 0.05);
+  background: radial-gradient(circle at top left, #122445, #0a1a38);
   padding: 24px;
   border-radius: 16px;
   width: 220px;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
-  backdrop-filter: blur(6px);
+  box-shadow: 0 0 20px rgba(77, 235, 201, 0.08), 0 12px 32px rgba(0, 0, 0, 0.4);
+  text-align: center;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  border: 1px solid rgba(77, 235, 201, 0.15);
+}
+
+.step-card:hover {
+  transform: translateY(-10px) scale(1.03);
+  box-shadow: 0 8px 32px rgba(77, 235, 201, 0.3);
 }
 
 .step-number {
@@ -97,8 +107,15 @@ const steps = [
 }
 
 .step-icon {
-  font-size: 32px;
-  margin-bottom: 10px;
+  font-size: 3rem;
+  color: #4debc9;
+  filter: drop-shadow(0 0 8px #4debc977);
+  margin-bottom: 16px;
+  transition: transform 0.3s ease;
+}
+
+.step-card:hover .step-icon {
+  transform: scale(1.3) rotate(8deg);
 }
 
 .step-card h3 {

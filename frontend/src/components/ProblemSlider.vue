@@ -1,5 +1,5 @@
 <template>
-  <section class="section">
+  <section class="section" id="technology">
     <div class="container">
       <h2 class="section-title">What prevents patients from recovering faster?</h2>
       <p class="section-subtitle">
@@ -8,8 +8,9 @@
 
       <div class="card-grid">
         <div class="card" v-for="(item, index) in problems" :key="index">
-          <img :src="item.image" :alt="item.title" />
-          <div class="card-caption">{{ item.title }}</div>
+          <div class="card-image-wrapper">
+            <img :src="item.image" :alt="`problem-${index}`" />
+          </div>
         </div>
       </div>
     </div>
@@ -17,20 +18,19 @@
 </template>
 
 <script setup>
+import problem1 from '@/assets/images/enpr1.png'
+import problem2 from '@/assets/images/enpr2.png'
+import problem3 from '@/assets/images/enpr3.png'
+import problem4 from '@/assets/images/enpr4.png'
+import problem5 from '@/assets/images/enpr5.png'
+
 const problems = [
-  {
-    title: 'Rehabilitation progressing slowly?',
-    image: '/images/problem1.jpg',
-  },
-  {
-    title: 'Limp holding you back from staying active?',
-    image: '/images/problem2.jpg',
-  },
-  {
-    title: 'Injury of the foot or ankle?',
-    image: '/images/problem3.jpg',
-  },
-];
+  { image: problem1 },
+  { image: problem2 },
+  { image: problem3 },
+  { image: problem4 },
+  { image: problem5 },
+]
 </script>
 
 <style scoped>
@@ -60,25 +60,27 @@ const problems = [
 }
 .card {
   width: 300px;
+  height: 170px;
   position: relative;
-  border-radius: 16px;
+  border-radius: 8px;
   overflow: hidden;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
   background: white;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.card:hover {
+  transform: scale(1.1);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+}
+.card-image-wrapper {
+  width: 100%;
+  height: 100%;
+  position: relative;
 }
 .card img {
   width: 100%;
-  display: block;
-  height: 200px;
+  height: 100%;
   object-fit: cover;
-}
-.card-caption {
-  position: absolute;
-  bottom: 16px;
-  left: 16px;
-  color: white;
-  font-size: 1.2rem;
-  font-weight: bold;
-  text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+  display: block;
 }
 </style>

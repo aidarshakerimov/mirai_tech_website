@@ -1,79 +1,85 @@
 <template>
-  <section class="tech-product-section">
-    <div class="container">
-      <div class="content">
-        <h4 class="label">INNOVATION IN EVERY STEP</h4>
-        <h2 class="title">Smart Insole: Next Generation Insoles</h2>
-        <p class="subtitle">
-          Mirai Smart Insoles are flexible sensor insoles that measure data and analyze your gait in real time.
-        </p>
-        <button class="cta-button">Watch demo</button>
-      </div>
-      <div class="image">
-        <img src="/images/product-demo.png" alt="Smart Insole Demo" />
+  <section class="technology-section" id="solution">
+    <div class="tech-container">
+      <div class="tech-header">
+        <div class="tech-info">
+          <p class="tech-label">INNOVATION IN EVERY STEP</p>
+          <h2>Smart Insole: Next Generation Insoles</h2>
+          <p class="tech-desc">
+            Mirai Smart Insoles are flexible sensor insoles that measure data and analyze your gait in real time.
+          </p>
+          <a
+            href="https://youtu.be/FYdaoMKvWgM?si=i2eZqBrzlG_G4fMS"
+            class="cta-button tech-button"
+            target="_blank"
+          >Watch demo</a>
+        </div>
+        <img class="tech-gif" src="@/assets/images/insoles.png" alt="Smart Insole" />
       </div>
     </div>
   </section>
 </template>
 
-<script setup>
-// No logic required for static section.
-</script>
-
 <style scoped>
-.tech-product-section {
+.technology-section {
+  padding: 5rem 2rem;
   background: #fff;
-  color: #0b102a;
-  padding: 100px 20px;
+  color: #111;
 }
 
-.tech-product-section .container {
+.tech-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.tech-header {
   display: flex;
+  flex-direction: row;
   align-items: center;
   justify-content: space-between;
   flex-wrap: wrap;
-  gap: 40px;
+  gap: 2rem;
 }
 
-.content {
+.tech-info {
   max-width: 600px;
 }
 
-.label {
-  font-weight: 700;
-  font-size: 0.9rem;
-  color: #5f6c89;
-  text-transform: uppercase;
-  margin-bottom: 10px;
+.tech-label {
+  font-weight: 600;
+  color: #555;
+  margin-bottom: 0.5rem;
 }
 
-.title {
-  font-size: 2.5rem;
-  font-weight: 800;
-  margin-bottom: 1rem;
+.tech-desc {
+  margin-top: 1rem;
+  font-size: 1.2rem;
+  color: #444;
 }
 
-.subtitle {
-  font-size: 1.1rem;
-  color: #4c5567;
-  margin-bottom: 2rem;
-}
-
-.cta-button {
+.tech-button {
+  display: inline-block;
+  margin-top: 2rem;
   background: linear-gradient(to right, #005eff, #36d1dc);
-  color: white;
-  padding: 12px 24px;
+  color: #fff;
+  padding: 14px 28px;
+  font-size: 1.1rem;
   font-weight: bold;
-  font-size: 1rem;
-  border-radius: 10px;
-  border: none;
-  cursor: pointer;
+  border-radius: 14px;
+  box-shadow: 0 12px 24px rgba(0, 94, 255, 0.25);
+  transition: 0.3s;
+  text-decoration: none;
 }
 
-.image img {
-  max-width: 400px;
+.tech-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 16px 32px rgba(0, 94, 255, 0.3);
+}
+
+.tech-gif {
+  max-width: 500px;
   width: 100%;
   height: auto;
-  display: block;
+  object-fit: contain;
 }
 </style>

@@ -12,6 +12,7 @@
     </div>
   </section>
 </template>
+
 <script setup>
 import { useLangStore } from '@/stores/lang'
 const langStore = useLangStore()
@@ -37,7 +38,6 @@ const logos = [
 ]
 </script>
 
-
 <style scoped>
 .partners-section {
   padding: 4rem 2rem;
@@ -60,20 +60,22 @@ const logos = [
 
 .partners-logos {
   display: inline-flex;
-  gap: 2.5rem;
+  gap: 3.5rem;
   align-items: center;
   justify-content: center;
   flex-wrap: nowrap;
 }
 
 .partners-logos img {
-  height: 60px;
-  max-width: 140px;
+  height: 80px;
+  max-width: 180px;
   object-fit: contain;
-  transition: transform 0.3s ease;
+  filter: brightness(0) grayscale(1) contrast(0.2);
+  transition: transform 0.3s ease, filter 0.3s ease;
 }
 
 .partners-logos img:hover {
-  transform: scale(1.05);
+  transform: scale(1.1);
+  filter: brightness(0.3) grayscale(0.5) contrast(0.8);
 }
 </style>
