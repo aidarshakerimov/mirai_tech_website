@@ -1,6 +1,6 @@
 <template>
   <section class="news-list-section">
-    <h2 class="section-title">News</h2>
+    <h2 class="section-title">{{ t('news-title') }}</h2>
     <div class="news-scroll-container">
       <div
         v-for="(news, index) in newsItems"
@@ -20,81 +20,97 @@
 </template>
 
 <script setup>
-const newsItems = [
+import { useLangStore } from '@/stores/lang';
+import { computed } from 'vue';
+
+const langStore = useLangStore();
+const t = langStore.t;
+
+const rawNewsItems = [
   {
     date: '23.04.2025',
-    title: 'Digital Business',
-    description: 'Engineers from Nazarbayev University founded MIRAI TECH after studying in Japan.',
-    linkText: 'Read more →',
+    titleKey: 'news-digital-title',
+    descKey: 'news-digital-desc',
+    linkTextKey: 'news-read-more',
     image: new URL('@/assets/news/news1.png', import.meta.url).href,
     link: 'https://digitalbusiness.kz/2025-04-23/kazahstanskie-uchenie-pridumali-umnie-stelki-rasskazivaem-v-chem-ih-unikalnost/'
   },
   {
     date: '05.03.2025',
-    title: 'The Steppe',
-    description: 'MIRAI TECH — a startup transforming rehabilitation in medicine and sports.',
-    linkText: 'Read more →',
+    titleKey: 'news-steppe-title',
+    descKey: 'news-steppe-desc',
+    linkTextKey: 'news-read-more',
     image: new URL('@/assets/news/news2.png', import.meta.url).href,
     link: 'https://the-tech.kz/mirai-tech-a-startup-transforming-rehabilitation-in-medicine-and-sports/'
   },
   {
     date: '20.12.2025',
-    title: 'Forbes Kazakhstan',
-    description: 'MIRAI TECH project by SEDS professors and students.',
-    linkText: 'Read more →',
+    titleKey: 'news-forbes-title',
+    descKey: 'news-forbes-desc',
+    linkTextKey: 'news-read-more',
     image: new URL('@/assets/news/news3.png', import.meta.url).href,
     link: 'https://seds.nu.edu.kz/news/tpost/i16i0udoc1-seds-professors-and-students-project-mir'
   },
   {
     date: '18.01.2025',
-    title: 'Startup Voice',
-    description: 'Watch a video showing gait analysis results.',
-    linkText: 'Watch →',
+    titleKey: 'news-startup-title',
+    descKey: 'news-startup-desc',
+    linkTextKey: 'news-watch',
     image: new URL('@/assets/news/news6.png', import.meta.url).href,
     link: 'https://www.instagram.com/reel/DFwRqiqo2fA/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=='
   },
   {
     date: '05.03.2025',
-    title: 'TechCrunch',
-    description: 'VISIT TO University Medical Center',
-    linkText: 'Watch →',
+    titleKey: 'news-umc-title',
+    descKey: 'news-umc-desc',
+    linkTextKey: 'news-watch',
     image: new URL('@/assets/news/news5.png', import.meta.url).href,
     link: 'https://www.instagram.com/p/DI3MgimASUN/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=='
   },
   {
     date: '10.05.2025',
-    title: 'MedTech Review',
-    description: 'Feedback and analysis from MIRAI TECH on Instagram.',
-    linkText: 'Watch →',
+    titleKey: 'news-feedback-title',
+    descKey: 'news-feedback-desc',
+    linkTextKey: 'news-watch',
     image: new URL('@/assets/news/news6.png', import.meta.url).href,
     link: 'https://www.instagram.com/p/DHWOFuWgcJz/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=='
   },
   {
     date: '05.03.2025',
-    title: 'TechCrunch',
-    description: 'НАЧАЛО ПИЛОТА В УДП БОЛЬНИЦЕ: ШАГ К ВНЕДРЕНИЮ КАЗАХСТАНСКИХ ИННОВАЦИЙ',
-    linkText: 'Watch →',
+    titleKey: 'news-pilot1-title',
+    descKey: 'news-pilot1-desc',
+    linkTextKey: 'news-watch',
     image: new URL('@/assets/news/news7.png', import.meta.url).href,
     link: 'https://www.instagram.com/p/DJThi_eza_O/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=='
   },
   {
     date: '05.03.2025',
-    title: 'TechCrunch',
-    description: 'MIRAI TECH LAUNCHES PILOT AT CITY HOSPITAL NO. 2: INNOVATION IN POST-STROKE REHABILITATION',
-    linkText: 'Watch →',
+    titleKey: 'news-pilot2-title',
+    descKey: 'news-pilot2-desc',
+    linkTextKey: 'news-watch',
     image: new URL('@/assets/news/news8.png', import.meta.url).href,
     link: 'https://www.instagram.com/p/DJThi_eza_O/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=='
   },
   {
     date: '05.03.2025',
-    title: 'TechCrunch',
-    description: 'Results in motion: MIRAI TECH in action.',
-    linkText: 'Watch →',
+    titleKey: 'news-motion-title',
+    descKey: 'news-motion-desc',
+    linkTextKey: 'news-watch',
     image: new URL('@/assets/news/news10.png', import.meta.url).href,
     link: 'https://www.instagram.com/reel/DIl0rlxA8nO/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=='
   }
 ];
+
+const newsItems = computed(() =>
+  rawNewsItems.map(item => ({
+    ...item,
+    title: t(item.titleKey),
+    description: t(item.descKey),
+    linkText: t(item.linkTextKey)
+  }))
+);
 </script>
+
 
 <style scoped>
 .news-scroll-container {

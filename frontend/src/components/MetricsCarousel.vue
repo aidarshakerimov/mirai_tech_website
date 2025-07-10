@@ -1,8 +1,8 @@
 <template>
   <section class="metrics-section">
-    <h2 class="section-title">Gait Analysis Metrics</h2>
+    <h2 class="section-title">{{ t('metrics-title') }}</h2>
     <p class="section-subtitle">
-      View key data on motion, pressure, and step symmetry.
+      {{ t('metrics-subtitle') }}
     </p>
     <div class="metrics-grid">
       <div
@@ -11,20 +11,24 @@
         class="metric-tile"
       >
         <img :src="metric.icon" alt="icon" class="metric-icon-img" />
-        <div class="metric-label">{{ metric.label }}</div>
+        <div class="metric-label">{{ t(metric.label) }}</div>
       </div>
     </div>
   </section>
 </template>
 
 <script setup>
+import { useLangStore } from '@/stores/lang';
+const langStore = useLangStore();
+const t = langStore.t;
+
 const metrics = [
-  { label: 'Asymmetry', icon: new URL('@/assets/images/metrics_icon1.png', import.meta.url).href },
-  { label: 'Step Length', icon: new URL('@/assets/images/metrics_icon2.png', import.meta.url).href },
-  { label: 'Pressure Distribution', icon: new URL('@/assets/images/metrics_icon3.png', import.meta.url).href },
-  { label: 'Dynamics', icon: new URL('@/assets/images/metrics_icon4.png', import.meta.url).href },
-  { label: 'Contact Phases', icon: new URL('@/assets/images/metrics_icon5.png', import.meta.url).href },
-  { label: 'Roll Phases', icon: new URL('@/assets/images/metrics_icon6.png', import.meta.url).href },
+  { label: 'metric-asymmetry', icon: new URL('@/assets/images/metrics_icon1.png', import.meta.url).href },
+  { label: 'metric-step-length', icon: new URL('@/assets/images/metrics_icon2.png', import.meta.url).href },
+  { label: 'metric-pressure', icon: new URL('@/assets/images/metrics_icon3.png', import.meta.url).href },
+  { label: 'metric-dynamics', icon: new URL('@/assets/images/metrics_icon4.png', import.meta.url).href },
+  { label: 'metric-contact-phases', icon: new URL('@/assets/images/metrics_icon5.png', import.meta.url).href },
+  { label: 'metric-roll-phases', icon: new URL('@/assets/images/metrics_icon6.png', import.meta.url).href },
 ];
 </script>
 

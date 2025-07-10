@@ -2,26 +2,31 @@
 <template>
   <section class="hero" id="try">
     <div class="hero-text">
-      <span class="mini-title">MIRAI TECH</span>
+      <span class="mini-title">{{ t('hero-mini-title') }}</span>
       <h1 class="hero-title">
-        Health starts <em>with the right gait</em>
+        {{ t('hero-title-1') }} <em>{{ t('hero-title-2') }}</em>
       </h1>
       <p class="hero-subtitle">
-        Mirai Smart Insole analyzes pressure and gait in real time to help detect deviations and restore movement balance.
+        {{ t('hero-subtitle') }}
       </p>
       <a
         href="https://forms.gle/cZw4tjWsRddnAWAL6"
         class="hero-button"
         data-key="cta-button"
         target="_blank"
-        >Try for free</a
-      >
+      >{{ t('hero-cta') }}</a>
     </div>
     <div class="hero-logo">
       <img src="@/assets/images/mirai4.png" alt="Logo" class="glow-image" />
     </div>
   </section>
 </template>
+
+<script setup>
+import { useLangStore } from '@/stores/lang'
+const langStore = useLangStore()
+const t = langStore.t
+</script>
 
 <style scoped>
 .hero {

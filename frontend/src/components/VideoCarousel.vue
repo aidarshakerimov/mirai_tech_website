@@ -1,7 +1,7 @@
 <template>
   <section class="video-carousel" id="blog">
-    <h2 class="carousel-title">Real steps. Real results.</h2>
-    <p class="carousel-subtitle">Diagnostics, progress, and tracking — all shown in motion.</p>
+    <h2 class="carousel-title">{{ t('carousel-title') }}</h2>
+    <p class="carousel-subtitle">{{ t('carousel-subtitle') }}</p>
     <div class="carousel">
       <button @click="prev" class="arrow left">&#8249;</button>
       <div class="video-frame" v-for="(video, index) in visibleVideos" :key="index">
@@ -14,6 +14,9 @@
 
 <script setup>
 import { ref, computed } from 'vue';
+import { useLangStore } from '@/stores/lang';
+const { t } = useLangStore();
+
 import video1 from '@/assets/videos/reels1.mp4';
 import video2 from '@/assets/videos/reels2.mp4';
 import video3 from '@/assets/videos/reels3.mp4';

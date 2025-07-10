@@ -1,8 +1,8 @@
 <template>
   <section class="how-it-works" id="how">
     <div class="container">
-      <h2 class="section-title">How does MIRAI Smart Insole work?</h2>
-      <p class="section-subtitle">Only 4 steps — and you get a digital gait profile</p>
+      <h2 class="section-title">{{ t('how-title') }}</h2>
+      <p class="section-subtitle">{{ t('how-subtitle') }}</p>
 
       <div class="steps-grid">
         <div class="step-card" v-for="(step, index) in steps" :key="index">
@@ -10,8 +10,8 @@
           <div class="step-icon">
             <svg-icon type="mdi" :path="step.path" />
           </div>
-          <h3>{{ step.title }}</h3>
-          <p>{{ step.text }}</p>
+          <h3>{{ t(step.title) }}</h3>
+          <p>{{ t(step.text) }}</p>
         </div>
       </div>
     </div>
@@ -19,29 +19,33 @@
 </template>
 
 <script setup>
+import { useLangStore } from '@/stores/lang';
+const langStore = useLangStore();
+const t = langStore.t;
+
 import SvgIcon from '@jamescoyle/vue-icon';
 import { mdiShoePrint, mdiBluetooth, mdiWalk, mdiFileChart } from '@mdi/js';
 
 const steps = [
   {
     path: mdiShoePrint,
-    title: 'Insert the insoles',
-    text: 'Choose the right size and place it in your shoe.'
+    title: 'how-step1-title',
+    text: 'how-step1-text'
   },
   {
     path: mdiBluetooth,
-    title: 'Connect via Bluetooth',
-    text: 'Open the app and follow the on-screen instructions.'
+    title: 'how-step2-title',
+    text: 'how-step2-text'
   },
   {
     path: mdiWalk,
-    title: 'Take 10 steps',
-    text: 'The insoles will record your data as you walk.'
+    title: 'how-step3-title',
+    text: 'how-step3-text'
   },
   {
     path: mdiFileChart,
-    title: 'Get your report',
-    text: 'You can save, print, or email the results.'
+    title: 'how-step4-title',
+    text: 'how-step4-text'
   }
 ];
 </script>

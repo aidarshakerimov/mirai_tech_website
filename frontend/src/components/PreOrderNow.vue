@@ -1,8 +1,8 @@
 <template>
   <section class="preorder-section"  id="contact">
     <div class="preorder-header">
-      <p class="preorder-subtitle">{{ t('Pre-Order') }}</p>
-      <h2 class="preorder-title">{{ t('Get Smart Insoles Now') }}</h2>
+      <p class="preorder-subtitle">{{ t('preorder-subtitle') }}</p>
+      <h2 class="preorder-title">{{ t('preorder-title') }}</h2>
     </div>
 
     <div class="preorder-container">
@@ -13,24 +13,24 @@
         @submit="handleSubmit"
         class="preorder-form"
       >
-        <input type="text" name="name" :placeholder="t('Name')" required />
-        <input type="text" name="organization" :placeholder="t('Organization Name')" />
-        <input type="email" name="email" :placeholder="t('Email')" required />
+        <input type="text" name="name" :placeholder="t('form-name')" required />
+        <input type="text" name="organization" :placeholder="t('form-organization')" />
+        <input type="email" name="email" :placeholder="t('form-email')" required />
         <input
           type="tel"
           name="phone"
-          :placeholder="t('Phone')"
+          :placeholder="t('form-phone')"
           maxlength="18"
           required
         />
-        <textarea name="message" :placeholder="t('Message')"></textarea>
-        <button type="submit" class="preorder-button">{{ t('Make Pre-Order') }}</button>
+        <textarea name="message" :placeholder="t('form-message')"></textarea>
+        <button type="submit" class="preorder-button">{{ t('form-submit') }}</button>
 
         <div v-if="submitted" class="success-popup">
           <div class="success-container">
             <img src="@/assets/success-icon.png" alt="Success" class="success-icon" />
-            <h3>{{ t('SUCCESS') }}</h3>
-            <p>{{ t('We will contact you very soon!') }}</p>
+            <h3>{{ t('form-success') }}</h3>
+            <p>{{ t('form-thanks') }}</p>
           </div>
         </div>
       </form>
@@ -43,6 +43,7 @@
     </div>
   </section>
 </template>
+
 
 <script setup>
 import { ref } from 'vue';

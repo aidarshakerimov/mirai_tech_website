@@ -2,23 +2,21 @@
 <template>
   <section class="partners-section" id="partners">
     <div class="partners-intro">
-      <h3 class="partners-subheading">{{ t('Partners') }}</h3>
+      <h3 class="partners-subheading">{{ t('partners-title') }}</h3>
     </div>
 
     <div class="partners-scroll-wrapper">
       <div class="partners-logos">
-        <img v-for="(logo, index) in logos" :key="index" :src="logo.src" :alt="logo.alt" />
+        <img v-for="(logo, index) in logos" :key="index" :src="logo.src" :alt="t(logo.altKey)" />
       </div>
     </div>
   </section>
 </template>
-
 <script setup>
 import { useLangStore } from '@/stores/lang'
 const langStore = useLangStore()
 const t = langStore.t
 
-// Static imports of partner logos from assets
 import part3 from '@/assets/partners/part3.png'
 import part1 from '@/assets/partners/part1.png'
 import univee from '@/assets/partners/univee.png'
@@ -28,13 +26,13 @@ import part4 from '@/assets/partners/part4.png'
 import ortodok from '@/assets/partners/ortodok.png'
 
 const logos = [
-  { src: part3, alt: 'In Motion Sport Clinic' },
-  { src: part1, alt: 'IDSPORT' },
-  { src: univee, alt: 'Medical Center of the President Administration' },
-  { src: part5, alt: 'национальный центр травмотологиии' },
-  { src: part7, alt: 'Городская многопрофильная больница №2' },
-  { src: part4, alt: 'Green Clinic' },
-  { src: ortodok, alt: 'ORTODok' },
+  { src: part3, altKey: 'partner-inmotion' },
+  { src: part1, altKey: 'partner-idsport' },
+  { src: univee, altKey: 'partner-medcenter' },
+  { src: part5, altKey: 'partner-trauma' },
+  { src: part7, altKey: 'partner-hospital2' },
+  { src: part4, altKey: 'partner-greenclinic' },
+  { src: ortodok, altKey: 'partner-ortodok' }
 ]
 </script>
 

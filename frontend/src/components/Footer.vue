@@ -5,7 +5,7 @@
       <div class="footer-container">
         <div class="footer-left">
           <img src="@/assets/MiraiLogo.png" alt="MIRAI TECH logo" class="footer-logo" />
-          <p class="footer-desc">{{ t('footer-description') }}</p>
+          <p class="footer-desc">{{ t('footer-desc') }}</p>
           <div class="social-icons">
             <a href="https://www.instagram.com/miraitech.ai?igsh=MWd3enVybnh1NXQ2ZQ%3D%3D&utm_source=qr" target="_blank"><i class="mdi mdi-instagram"></i></a>
             <a href="https://www.linkedin.com/company/miraitechkz/" target="_blank"><i class="mdi mdi-linkedin"></i></a>
@@ -16,17 +16,17 @@
           <div class="contact-info">
             <h3>{{ t('footer-contacts') }}</h3>
             <p>mirai.tech.kz@gmail.com</p>
-            <p>пр. Кабанбай батыра 53, Астана</p>
+            <p>{{ t('footer-address') }}</p>
           </div>
         </div>
       </div>
       <div class="footer-bottom">
         <div class="footer-bottom-wrapper">
-          <p>Copyright © 2025 MIRAItech | Design by <a href="https://t.me/shakerman" target="_blank">@Shakerman</a></p>
+          <p>{{ t('footer-copyright') }} <a href="https://t.me/shakerman" target="_blank">@Shakerman</a></p>
           <div class="footer-links">
-            <a href="#">Terms of Use</a>
+            <a href="#">{{ t('footer-terms') }}</a>
             <span>|</span>
-            <a href="#">Privacy Policy</a>
+            <a href="#">{{ t('footer-privacy') }}</a>
           </div>
         </div>
       </div>
@@ -63,7 +63,7 @@ const t = langStore.t;
 }
 
 .footer-logo {
-  max-height: 60px;
+  max-height: 100px;
   margin-bottom: 1rem;
 }
 

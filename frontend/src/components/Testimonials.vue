@@ -7,52 +7,48 @@
           <div class="testimonial-header">
             <img class="testimonial-avatar" :src="testimonial.avatar" :alt="testimonial.name" />
             <div class="testimonial-info">
-              <p class="testimonial-name">{{ testimonial.name }}</p>
-              <p class="testimonial-role">{{ testimonial.role }}</p>
+              <p class="testimonial-name">{{ t(testimonial.name) }}</p>
+              <p class="testimonial-role">{{ t(testimonial.role) }}</p>
             </div>
           </div>
           <div class="testimonial-stars">★★★★★</div>
-          <p class="testimonial-text">{{ testimonial.text }}</p>
+          <p class="testimonial-text">{{ t(testimonial.text) }}</p>
         </div>
       </div>
     </div>
   </section>
 </template>
 
-<script>
-export default {
-  name: 'TestimonialsSection',
-  data() {
-    return {
-      testimonials: [
-        {
-          name: 'ROMAN IVANOV',
-          role: 'Asian Games Gold Medalist in Freestyle Skiing',
-          avatar: require('@/assets/images/sergei_olimp.png'),
-          text: 'Clearly saw the difference in leg load, understood what to work on after doctor’s interpretation.'
-        },
-        {
-          name: 'TAISIYA DURACHENKO',
-          role: 'Sports Medicine and Rehab Doctor, CEO',
-          avatar: require('@/assets/images/orys.png'),
-          text: "Now we can not only rely on the patient's words but also show objective progress data."
-        },
-        {
-          name: 'MOLDIR',
-          role: 'Office worker',
-          avatar: require('@/assets/images/kazakh.png'),
-          text: 'I took the insoles for fun. Turned out I had a leg imbalance, confirmed with the report! Now I feel better.'
-        },
-        {
-          name: 'BOLAT',
-          role: 'Tech Professional',
-          avatar: require('@/assets/images/Bolat.png'),
-          text: 'Excellent device. Very useful for understanding gait and pressure distribution.'
-        }
-      ]
-    }
+<script setup>
+import { useLangStore } from '@/stores/lang';
+const { t } = useLangStore();
+
+const testimonials = [
+  {
+    name: 'testimonial-name-1',
+    role: 'testimonial-role-1',
+    avatar: require('@/assets/images/sergei_olimp.png'),
+    text: 'testimonial-text-1'
+  },
+  {
+    name: 'testimonial-name-2',
+    role: 'testimonial-role-2',
+    avatar: require('@/assets/images/orys.png'),
+    text: 'testimonial-text-2'
+  },
+  {
+    name: 'testimonial-name-3',
+    role: 'testimonial-role-3',
+    avatar: require('@/assets/images/kazakh.png'),
+    text: 'testimonial-text-3'
+  },
+  {
+    name: 'testimonial-name-4',
+    role: 'testimonial-role-4',
+    avatar: require('@/assets/images/Bolat.png'),
+    text: 'testimonial-text-4'
   }
-}
+];
 </script>
 
 <style scoped>

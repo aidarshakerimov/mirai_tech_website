@@ -6,8 +6,8 @@
       <div class="events-scroll-wrapper">
         <div class="events-track">
           <div class="event-card" v-for="(event, index) in events" :key="index">
-            <img :src="event.image" :alt="event.alt" class="event-image" />
-            <a :href="event.link" class="event-link">{{ t(`Read More`) }}</a>
+            <img :src="event.image" :alt="t(event.alt)" class="event-image" />
+            <a :href="event.link" class="event-link">{{ t('events-read-more') }}</a>
           </div>
         </div>
       </div>
@@ -17,21 +17,21 @@
 
 <script setup>
 import { useLangStore } from '@/stores/lang';
-import event1 from '@/assets/events/events1.png';
-import event2 from '@/assets/events/events2.1.png';
-
 const langStore = useLangStore();
 const t = langStore.t;
+
+import event1 from '@/assets/events/events1.png';
+import event2 from '@/assets/events/events2.1.png';
 
 const events = [
   {
     image: event1,
-    alt: 'Семинар 1',
+    alt: 'events-seminar-1',
     link: 'https://www.instagram.com/p/DJ6UStLzhCc/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=='
   },
   {
     image: event2,
-    alt: 'Семинар 4',
+    alt: 'events-seminar-4',
     link: 'https://www.instagram.com/p/DJ6UrQOz9Hp/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=='
   }
 ];

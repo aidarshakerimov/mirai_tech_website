@@ -4,11 +4,11 @@
     <div class="made-container">
       <div class="made-text">
         <h2 class="made-title">
-          In-house technology.<br />
-          Made in Kazakhstan.
+          {{ t('made-title-line1') }}<br />
+          {{ t('made-title-line2') }}
         </h2>
         <p class="made-description">
-          {{ t('Each pair of MIRAI Smart Insole is made at our facility in Astana — from idea to finished product. This allows us to control quality at all stages and innovate faster — from sensors to AI algorithms.') }}
+          {{ t('made-description') }}
         </p>
       </div>
       <div class="made-logos">

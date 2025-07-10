@@ -3,22 +3,28 @@
     <div class="tech-container">
       <div class="tech-header">
         <div class="tech-info">
-          <p class="tech-label">INNOVATION IN EVERY STEP</p>
-          <h2>Smart Insole: Next Generation Insoles</h2>
+          <p class="tech-label">{{ t('solution-label') }}</p>
+          <h2>{{ t('solution-title') }}</h2>
           <p class="tech-desc">
-            Mirai Smart Insoles are flexible sensor insoles that measure data and analyze your gait in real time.
+            {{ t('solution-desc') }}
           </p>
           <a
             href="https://youtu.be/FYdaoMKvWgM?si=i2eZqBrzlG_G4fMS"
             class="cta-button tech-button"
             target="_blank"
-          >Watch demo</a>
+          >{{ t('solution-cta') }}</a>
         </div>
         <img class="tech-gif" src="@/assets/images/insoles.png" alt="Smart Insole" />
       </div>
     </div>
   </section>
 </template>
+
+<script setup>
+import { useLangStore } from '@/stores/lang'
+const langStore = useLangStore()
+const t = langStore.t
+</script>
 
 <style scoped>
 .technology-section {

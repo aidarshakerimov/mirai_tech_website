@@ -1,16 +1,16 @@
 <template>
   <section class="application-cards">
-    <h2 class="section-title">Applications</h2>
+    <h2 class="section-title">{{ t('app-title') }}</h2>
     <p class="section-description">
-      We change the approach to rehabilitation and motion monitoring.<br />
-      MIRAI TECH integrates into any environment — from clinics and sports centers to home workouts. A universal tool focused on results.
+      {{ t('app-desc-1') }}<br />
+      {{ t('app-desc-2') }}
     </p>
     <div class="cards-container">
       <div class="card" v-for="(app, index) in applications" :key="index">
         <img :src="app.image" class="background-image" alt="Application image" />
         <div class="card-overlay">
-          <h3>{{ app.title }}</h3>
-          <p v-html="app.description"></p>
+          <h3>{{ t(app.title) }}</h3>
+          <p v-html="t(app.description)"></p>
         </div>
       </div>
     </div>
@@ -18,20 +18,22 @@
 </template>
 
 <script setup>
+import { useLangStore } from '@/stores/lang';
+const langStore = useLangStore();
+const t = langStore.t;
+
 import sportImage from '@/assets/images/applications-sports.png';
 import rehabImage from '@/assets/images/applications-rehab.png';
 
 const applications = [
   {
-    title: 'MIRAI TECH in sports',
-    description:
-      'Used for analyzing gait and load distribution in professional athletes.<br />Helps correct technique and prevent injuries.',
+    title: 'app-sports-title',
+    description: 'app-sports-desc',
     image: sportImage
   },
   {
-    title: 'MIRAI TECH in clinics and rehabilitation',
-    description:
-      'Doctors use the insoles for objective assessment of patient condition<br />and adapting rehabilitation programs.',
+    title: 'app-rehab-title',
+    description: 'app-rehab-desc',
     image: rehabImage
   }
 ];

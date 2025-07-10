@@ -1,21 +1,27 @@
 <template>
   <section class="tech-helps-section">
     <div class="container">
-      <h2 class="section-title">How Mirai Insole Helps</h2>
+      <h2 class="section-title">{{ t('helps-title') }}</h2>
       <div class="feature-grid">
         <div class="feature-card" v-for="(feature, index) in features" :key="index">
           <div class="feature-icon">
             <svg-icon type="mdi" :path="feature.path" />
           </div>
-          <h3 class="feature-title">{{ feature.title }}</h3>
-          <p class="feature-text">{{ feature.text }}</p>
+          <h3 class="feature-title">{{ t(feature.title) }}</h3>
+          <p class="feature-text">{{ t(feature.text) }}</p>
         </div>
       </div>
     </div>
   </section>
 </template>
 
-<script>
+<script setup>
+
+import { useLangStore } from '@/stores/lang';
+
+const langStore = useLangStore();
+const t = langStore.t;
+
 import SvgIcon from '@jamescoyle/vue-icon';
 import {
   mdiBrain,
@@ -25,49 +31,38 @@ import {
   mdiHomeCity,
   mdiAccountCircleOutline
 } from '@mdi/js';
-
-export default {
-  name: "TechHelpsSection",
-  components: {
-    SvgIcon
+const features = [
+  {
+    path: mdiBrain,
+    title: 'helps-ai-title',
+    text: 'helps-ai-text'
   },
-  data() {
-    return {
-      features: [
-        {
-          path: mdiBrain,
-          title: 'AI-powered analysis',
-          text: 'Automatic gait analysis based on machine learning algorithms.'
-        },
-        {
-          path: mdiCellphoneLink,
-          title: 'Diagnosis in 5 minutes',
-          text: 'Doctors receive objective information during the first appointment — no need for lengthy observations or subjective tests.'
-        },
-        {
-          path: mdiRunFast,
-          title: 'Objective progress tracking',
-          text: 'Digital indicators that can be compared from session to session.'
-        },
-        {
-          path: mdiCloudUploadOutline,
-          title: 'Automatic reporting',
-          text: 'Reduces documentation. Just sign and upload or save the report.'
-        },
-        {
-          path: mdiHomeCity,
-          title: 'Continuous monitoring outside clinic',
-          text: 'Monitor gait in real-world environments — at home, gym, or outdoors.'
-        },
-        {
-          path: mdiAccountCircleOutline,
-          title: 'Simple interface for doctors and patients',
-          text: 'No training required. Works seamlessly on desktop or phone.'
-        }
-      ]
-    };
+  {
+    path: mdiCellphoneLink,
+    title: 'helps-diagnosis-title',
+    text: 'helps-diagnosis-text'
+  },
+  {
+    path: mdiRunFast,
+    title: 'helps-tracking-title',
+    text: 'helps-tracking-text'
+  },
+  {
+    path: mdiCloudUploadOutline,
+    title: 'helps-reporting-title',
+    text: 'helps-reporting-text'
+  },
+  {
+    path: mdiHomeCity,
+    title: 'helps-monitoring-title',
+    text: 'helps-monitoring-text'
+  },
+  {
+    path: mdiAccountCircleOutline,
+    title: 'helps-interface-title',
+    text: 'helps-interface-text'
   }
-};
+];
 </script>
 
 

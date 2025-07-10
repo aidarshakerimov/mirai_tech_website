@@ -1,9 +1,9 @@
 <template>
   <section class="section" id="technology">
     <div class="container">
-      <h2 class="section-title">What prevents patients from recovering faster?</h2>
+      <h2 class="section-title">{{ t('tech-title') }}</h2>
       <p class="section-subtitle">
-        These problems are encountered daily by doctors and trainers. We are building a tool that simplifies diagnostics and strengthens therapy results.
+        {{ t('tech-subtitle') }}
       </p>
 
       <div class="card-grid">
@@ -18,6 +18,10 @@
 </template>
 
 <script setup>
+import { useLangStore } from '@/stores/lang'
+const langStore = useLangStore()
+const t = langStore.t
+
 import problem1 from '@/assets/images/enpr1.png'
 import problem2 from '@/assets/images/enpr2.png'
 import problem3 from '@/assets/images/enpr3.png'

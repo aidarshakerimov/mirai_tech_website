@@ -1,6 +1,6 @@
 <template>
   <section class="publications-list" id="publications">
-    <h2 class="title">Our Publications</h2>
+    <h2 class="title">{{ t('our-publications') }}</h2>
     <div class="cards">
       <div
         v-for="(pub, index) in publications"
@@ -13,7 +13,7 @@
         <p class="year">{{ pub.year }}</p>
         <p class="source">{{ pub.source }}</p>
         <h3 class="headline">{{ pub.title }}</h3>
-        <a class="link" :href="pub.link" target="_blank">Read more →</a>
+        <a class="link" :href="pub.link" target="_blank">{{ t('read-more') }} →</a>
       </div>
     </div>
   </section>
@@ -21,7 +21,9 @@
 
 <script setup>
 import { ref } from 'vue';
-
+import { useLangStore } from '@/stores/lang'
+const langStore = useLangStore()
+const t = langStore.t
 const hovered = ref(null);
 
 const publications = [
