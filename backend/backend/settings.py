@@ -37,6 +37,7 @@ INSTALLED_APPS = [
 CORS_ORIGIN_ALLOW_ALL = True
 
 MIDDLEWARE = [
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -124,12 +125,23 @@ USE_TZ = True
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
+
+
 # settings.py (relevant parts)
 STATIC_URL = '/static/'
 STATIC_ROOT = BASE_DIR / 'staticfiles'  # where collectstatic will gather files for production
 STATICFILES_DIRS = [
     BASE_DIR / 'static',  # if you're using a global static directory
 ]
+
+
+# # Optional: compress static files
+# STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+
+# # Add this if deploying on Heroku
+# ALLOWED_HOSTS = ['*']  # or set specific domains
+
+
 # For media (user uploads), if needed:
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
